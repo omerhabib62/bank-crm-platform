@@ -56,7 +56,7 @@ async function bootstrap() {
   await app.listen(configuration.PORT);
 
   console.log(
-    `Server running at ${configuration.BASE_URL}:${configuration.PORT}`,
+    `Server running at ${configuration.BASE_URL} on port ${configuration.PORT}`,
   );
 }
 bootstrap();
