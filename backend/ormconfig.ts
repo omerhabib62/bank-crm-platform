@@ -14,12 +14,17 @@ export const AppDataSource = new DataSource({
   password: configuration.DB_PASSWORD,
   database: configuration.DB_NAME,
   synchronize: false, // Set to false for production and use migrations
-  logging: true,
-  entities: [__dirname + '/**/*.entity{.ts,.js}'],
-  migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
-  subscribers: [], // Optional: add if you are using subscribers,
-  migrationsTableName: '_migrations',
-  migrationsRun: false,
+  logging: false,
+  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+  migrations: [__dirname + '/../migrations/*{.ts,.js}'],
 });
 
-// console.log('DataSource Configuration:', AppDataSource.options);
+// console.log('DataSource Configu/ration:', AppDataSource.options);
+
+AppDataSource.initialize()
+  .then(() => {
+    console.log('Data Source has been initialized!');
+  })
+  .catch((err) => {
+    console.error('Error during Data Source initialization', err);
+  });

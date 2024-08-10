@@ -6,8 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "typeorm": "typeorm-ts-node-commonjs",
-    "seed": "ts-node src/seed.ts",
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate src/database/migrations -d ormconfig.ts",
+    "migration:run": "typeorm-ts-node-commonjs -d ormconfig.ts migration:run",
+    "migration:revert": "typeorm-ts-node-commonjs -d ormconfig.ts migration:revert",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

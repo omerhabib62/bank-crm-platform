@@ -16,7 +16,11 @@ async function bootstrap() {
   const whiteList = ['*'];
   app.enableCors({
     origin: function (origin, callback) {
-      if (whiteList.indexOf('*') >= 0 || whiteList.indexOf(origin) >= 0 || !origin) {
+      if (
+        whiteList.indexOf('*') >= 0 ||
+        whiteList.indexOf(origin) >= 0 ||
+        !origin
+      ) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
